@@ -1,0 +1,12 @@
+---
+# Where to install miniconda?
+install_dir: "~/software/miniconda"
+
+# Which channels to add? Order might matter since they are appended to existing
+# channels.
+conda_channels:
+  - conda-forge
+
+# Which packages to install?
+conda_packages:
+  - pre-commit

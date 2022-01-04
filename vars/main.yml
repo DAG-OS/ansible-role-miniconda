@@ -1,0 +1,6 @@
+---
+# Path to downloaded installer script.
+install_script: "/tmp/install.sh"
+
+# Used to execute conda commands even without it being on the PATH.
+conda_binary: "{{ install_dir }}/bin/conda"

@@ -1,0 +1,17 @@
+---
+- name: Get configured conda channels
+  ansible.builtin.command: "{{ conda_binary }} config --show channels"
+  changed_when: false
+  register: current_conda_channels
+- name: Add provided conda channels
+  when: item not in current_conda_channels.stdout
+  ansible.builtin.command: "{{ conda_binary }} config --append channels {{ item }}"
+  loop: "{{ conda_channels }}"
+  register: cmd_result
+  changed_when: "cmd_result.stdout | length == 0"
+
+- name: Install provided packages
+  ansible.builtin.command: "{{ conda_binary }} install --yes {{ item }}"
+  loop: "{{ conda_packages }}"
+  register: cmd_result
+  changed_when: "'# All requested packages already installed.' not in cmd_result.stdout"

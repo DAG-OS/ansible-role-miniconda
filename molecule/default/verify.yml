@@ -1,0 +1,36 @@
+---
+- name: Verify
+  hosts: all
+  gather_facts: false
+  become: true
+  become_user: test
+  tasks:
+    - name: Get conda version
+      ansible.builtin.shell: source ~/.bashrc && conda --version
+      register: conda_version
+      changed_when: false
+    - name: Output conda version
+      ansible.builtin.debug:
+        var: conda_version.stdout
+    - name: Get channel configuration
+      ansible.builtin.shell: source ~/.bashrc && conda config --show channels
+      register: conda_channels
+      changed_when: false
+    - name: Check channel configuration
+      ansible.builtin.assert:
+        that: "{{ item in conda_channels.stdout }}"
+        quiet: true
+      loop:
+        - conda-forge
+        - conda-canary
+    - name: Get installed packages
+      ansible.builtin.shell: source ~/.bashrc && conda list
+      register: conda_packages
+      changed_when: false
+    - name: Check installed packages
+      ansible.builtin.assert:
+        that: "{{ item in conda_packages.stdout }}"
+        quiet: true
+      loop:
+        - pre-commit
+        - click

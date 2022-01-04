@@ -1,0 +1,3 @@
+---
+- ansible.builtin.import_tasks: "install.yml"  # noqa unnamed-task
+- ansible.builtin.import_tasks: "configure.yml"  # noqa unnamed-task

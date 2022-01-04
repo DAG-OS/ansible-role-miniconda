@@ -1,0 +1,25 @@
+---
+argument_specs:
+  main:
+    options:
+      state:
+        description: "Defines the state this role should strive towards."
+        type: "str"
+        required: false
+        default: "present"
+        choices:
+          - "present"
+          - "install"
+          - "configure"
+      install_dir:
+        description: "Where to install miniconda?"
+        type: "str"
+        required: false
+      conda_channels:
+        description: "Which channels to add to the configuration?"
+        type: "list"
+        required: false
+      conda_packages:
+        description: "Which packages to install?"
+        type: "list"
+        required: false

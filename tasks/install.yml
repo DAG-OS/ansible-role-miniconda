@@ -1,0 +1,13 @@
+---
+- name: Download installation script
+  ansible.builtin.get_url:
+    url: https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh
+    dest: "{{ install_script }}"
+- name: Run installation script
+  ansible.builtin.command:
+    cmd: "bash {{ install_script }} -p {{ install_dir }} -b"
+    creates: "{{ install_dir }}"
+- name: Run conda initialization
+  ansible.builtin.command: "{{ conda_binary }} init --all"
+  register: cmd_result
+  changed_when: "'modified' in cmd_result.stdout"

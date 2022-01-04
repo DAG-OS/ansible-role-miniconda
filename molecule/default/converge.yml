@@ -1,0 +1,21 @@
+---
+- name: Converge
+  hosts: all
+  pre_tasks:
+    - name: Create a test user
+      ansible.builtin.user:
+        name: test
+        state: present
+        create_home: true
+  roles:
+    - role: dagos.miniconda
+      become: true
+      become_user: test
+      vars:
+        state: present
+        conda_channels:
+          - conda-forge
+          - conda-canary
+        conda_packages:
+          - pre-commit
+          - click

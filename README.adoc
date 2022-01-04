@@ -1,0 +1,39 @@
+# Ansible Role: Miniconda
+
+A role for installing and configuring https://docs.conda.io/en/latest/miniconda.html[Miniconda].
+
+## Requirements
+
+None.
+
+## Role Variables
+
+The following variables are overridable by users to configure this role:
+
+[source,yaml]
+.xref:defaults/main.yml[]
+----
+include::defaults/main.yml[]
+----
+
+## Dependencies
+
+None.
+
+## Example Playbook
+
+The following playbook is tested regularly as part of the defined CI pipeline:
+
+[source,yaml]
+.xref:molecule/default/converge.yml[]
+----
+include::molecule/default/converge.yml[]
+----
+
+## License
+
+MIT
+
+## Author Information
+
+This role was created in 2022 by Lucas Resch.

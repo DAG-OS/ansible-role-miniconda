@@ -1,0 +1,4 @@
+---
+title: "Ansible role: dagos.miniconda"
+name: dagos.miniconda
+version: trunk

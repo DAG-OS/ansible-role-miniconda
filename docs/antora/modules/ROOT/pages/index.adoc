@@ -1,4 +1,4 @@
-# Ansible Role: Miniconda
+# Ansible role: dagos.miniconda
 
 A role for installing and configuring https://docs.conda.io/en/latest/miniconda.html[Miniconda].
 
@@ -6,34 +6,34 @@ A role for installing and configuring https://docs.conda.io/en/latest/miniconda.
 
 None.
 
-## Role Variables
+## Role variables
 
 The following variables are overridable by users to configure this role:
 
 [source,yaml]
-.xref:defaults/main.yml[]
+.https://github.com/DAG-OS/ansible-role-miniconda/blob/trunk/defaults/main.yml[defaults/main.yml]
 ----
-include::defaults/main.yml[]
+include::example$defaults-main.yml[]
 ----
 
 ## Dependencies
 
 None.
 
-## Example Playbook
+## Example playbook
 
 The following playbook is tested regularly as part of the defined CI pipeline:
 
 [source,yaml]
-.xref:molecule/default/converge.yml[]
+.https://github.com/DAG-OS/ansible-role-miniconda/blob/trunk/molecule/default/converge.yml[molecule/default/converge.yml]
 ----
-include::molecule/default/converge.yml[]
+include::example$converge.yml[]
 ----
 
 ## License
 
 MIT
 
-## Author Information
+## Author information
 
 This role was created in 2022 by Lucas Resch.

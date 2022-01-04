@@ -7,6 +7,7 @@
         name: test
         state: present
         create_home: true
+        shell: /bin/bash
   roles:
     - role: dagos.miniconda
       become: true
